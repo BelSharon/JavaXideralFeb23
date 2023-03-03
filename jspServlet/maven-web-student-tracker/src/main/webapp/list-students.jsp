@@ -13,7 +13,8 @@
 
 	<div id="wrapper">
 		<div id="header">
-			<h2>FooBar University</h2>
+			<h2>Colegio Hogwarts </h2>
+			<h3>de Magia y Hechicería</h3>
 		</div>
 	</div>
 
@@ -23,7 +24,7 @@
 		
 			<!-- put new button: Add Student -->
 			
-			<input type="button" value="Add Student" 
+			<input type="button" value="Nuevo estudiante" 
 				   onclick="window.location.href='add-student-form.jsp'; return false;"
 				   class="add-student-button"
 			/>
@@ -31,10 +32,10 @@
 			<table>
 			
 				<tr>
-					<th>First Name</th>
-					<th>Last Name</th>
-					<th>Email</th>
-					<th>Action</th>
+					<th>Nombre</th>
+					<th>Apellido</th>
+					<th>Casa</th>
+					<th>Acción</th>
 				</tr>
 				
 				<c:forEach var="tempStudent" items="${LISTA_ESTUDIANTES}">
@@ -52,15 +53,15 @@
 					</c:url>
 																		
 					<tr>
-						<td> ${tempStudent.firstName} </td>
-						<td> ${tempStudent.lastName} </td>
-						<td> ${tempStudent.email} </td>
+						<td> ${tempStudent.nombre} </td>
+						<td> ${tempStudent.apellido} </td>
+						<td> ${tempStudent.casa} </td>
 						<td> 
-							<a href="${tempLink}">Update</a> 
+							<a href="${tempLink}">Actualizar</a> 
 							 | 
 							<a href="${deleteLink}"
-							onclick="if (!(confirm('Are you sure you want to delete this student?'))) return false">
-							Delete</a>	
+							onclick="if (!(confirm('¿Seguro de borrar el estudiante?'))) return false">
+							Borrar</a>	
 						</td>
 					</tr>
 				

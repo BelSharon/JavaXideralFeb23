@@ -18,7 +18,8 @@
 
 	<div id="wrapper">
 		<div id="header">
-			<h2>FooBar University</h2>
+			<h2>Colegio Hogwarts</h2>
+			<h3>de Magia y Hechicería</h3>
 		</div>
 	</div>
 
@@ -37,9 +38,9 @@
 				<% for (Student tempStudent : theStudents) { %>
 				
 					<tr>
-						<td> <%= tempStudent.getFirstName() %> </td>
-						<td> <%= tempStudent.getLastName() %> </td>
-						<td> <%= tempStudent.getEmail() %> </td>
+						<td> <%= tempStudent.getNombre() %> </td>
+						<td> <%= tempStudent.getApellido() %> </td>
+						<td> <%= tempStudent.getCasa() %> </td>
 					</tr>
 				
 				<% } %>

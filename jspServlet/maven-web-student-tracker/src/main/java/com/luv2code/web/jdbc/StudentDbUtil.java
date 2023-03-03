@@ -23,7 +23,7 @@ public class StudentDbUtil {
 		List<Student> students = new ArrayList<>();
 		
 		// create sql statement
-		String sql = "select * from student order by last_name";
+		String sql = "select * from estudiante order by apellido";
 		
 		try (Connection myConn = dataSource.getConnection();
 				Statement myStmt = myConn.createStatement();
@@ -34,12 +34,12 @@ public class StudentDbUtil {
 
 				// retrieve data from result set row
 				int id = myRs.getInt("id");
-				String firstName = myRs.getString("first_name");
-				String lastName = myRs.getString("last_name");
-				String email = myRs.getString("email");
+				String nombre = myRs.getString("nombre");
+				String apellido = myRs.getString("apellido");
+				String casa = myRs.getString("casa");
 
 				// create new student object
-				Student tempStudent = new Student(id, firstName, lastName, email);
+				Student tempStudent = new Student(id, nombre, apellido, casa);
 
 				// add it to the list of students
 				students.add(tempStudent);
@@ -64,12 +64,12 @@ public class StudentDbUtil {
 
 	public void addStudent(Student theStudent) throws Exception {
 
-		String sql = "insert into student " + "(first_name, last_name, email) " + "values (?, ?, ?)";
+		String sql = "insert into estudiante " + "(nombre, apellido, casa) " + "values (?, ?, ?)";
 		
 		try (Connection myConn = dataSource.getConnection(); PreparedStatement ps = myConn.prepareStatement(sql);){
-			ps.setString(1, theStudent.getFirstName());
-			ps.setString(2, theStudent.getLastName());
-			ps.setString(3, theStudent.getEmail());
+			ps.setString(1, theStudent.getNombre());
+			ps.setString(2, theStudent.getApellido());
+			ps.setString(3, theStudent.getCasa());
 
 			ps.execute();
 		}
@@ -86,12 +86,12 @@ public class StudentDbUtil {
 
 			// retrieve data from result set row
 			if (myRs.next()) {
-				String firstName = myRs.getString("first_name");
-				String lastName = myRs.getString("last_name");
-				String email = myRs.getString("email");
+				String nombre = myRs.getString("nombre");
+				String apellido = myRs.getString("apellido");
+				String casa = myRs.getString("casa");
 
 				// use the studentId during construction
-				theStudent = new Student(studentId, firstName, lastName, email);
+				theStudent = new Student(studentId, nombre, apellido, casa);
 			} else {
 				throw new Exception("Could not find student id: " + studentId);
 			}
@@ -101,7 +101,7 @@ public class StudentDbUtil {
 	}
 	
 	private PreparedStatement crearStatementGetStudent(Connection myConn, int studentId) throws SQLException {
-		String sql = "select * from student where id=?";
+		String sql = "select * from estudiante where id=?";
 		PreparedStatement ps = myConn.prepareStatement(sql);
 		ps.setInt(1, studentId);
 		return ps;
@@ -111,15 +111,15 @@ public class StudentDbUtil {
 		
 
 		// create SQL update statement
-		String sql = "update student " + "set first_name=?, last_name=?, email=? " + "where id=?";
+		String sql = "update estudiante " + "set nombre=?, apellido=?, casa=? " + "where id=?";
 
 		try (Connection myConn = dataSource.getConnection();
 			 PreparedStatement myStmt = myConn.prepareStatement(sql);) { 
 			
 			// set params
-			myStmt.setString(1, theStudent.getFirstName());
-			myStmt.setString(2, theStudent.getLastName());
-			myStmt.setString(3, theStudent.getEmail());
+			myStmt.setString(1, theStudent.getNombre());
+			myStmt.setString(2, theStudent.getApellido());
+			myStmt.setString(3, theStudent.getCasa());
 			myStmt.setInt(4, theStudent.getId());
 
 			// execute SQL statement
@@ -130,7 +130,7 @@ public class StudentDbUtil {
 	public void deleteStudent(String theStudentId) throws Exception {
 
 		// create sql to delete student
-				String sql = "delete from student where id=?";
+				String sql = "delete from estudiante where id=?";
 
 				try (Connection myConn = dataSource.getConnection();
 					 PreparedStatement myStmt = myConn.prepareStatement(sql);) {

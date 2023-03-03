@@ -3,21 +3,24 @@ package com.luv2code.web.jdbc;
 public class Student {
 
 	private int id;
-	private String firstName;
-	private String lastName;
-	private String email;
+	private String nombre;
+	private String apellido;
+	private String casa;
+	
+	
 
-	public Student(String firstName, String lastName, String email) {
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
+	public Student(String nombre, String apellido, String casa) {
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.casa = casa;
 	}
 
-	public Student(int id, String firstName, String lastName, String email) {
+	public Student(int id, String nombre, String apellido, String casa) {
+		super();
 		this.id = id;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.casa = casa;
 	}
 
 	public int getId() {
@@ -28,32 +31,29 @@ public class Student {
 		this.id = id;
 	}
 
-	public String getFirstName() {
-		return firstName;
+	public String getNombre() {
+		return nombre;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 
-	public String getLastName() {
-		return lastName;
+	public String getApellido() {
+		return apellido;
 	}
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getCasa() {
+		return casa;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setCasa(String casa) {
+		this.casa = casa;
 	}
 
-	@Override
-	public String toString() {
-		return "Student [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + "]";
-	}	
+		
 }
