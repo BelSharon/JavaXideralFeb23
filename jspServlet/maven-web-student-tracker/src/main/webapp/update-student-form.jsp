@@ -12,6 +12,7 @@
 	<div id="wrapper">
 		<div id="header">
 			<h2>Colegio Hogwarts</h2>
+			<h4>de Magia y Hechicería</h4>
 		</div>
 	</div>
 	

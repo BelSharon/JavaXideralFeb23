@@ -104,7 +104,7 @@ public class StudentControllerServlet extends HttpServlet {
 		int id = Integer.parseInt(request.getParameter("studentId"));
 		String nombre = request.getParameter("firstName");
 		String apellido = request.getParameter("lastName");
-		String casa = request.getParameter("email");
+		String casa = request.getParameter("casa");
 		
 		// create a new student object
 		Student theStudent = new Student(id, nombre, apellido, casa);
@@ -140,7 +140,7 @@ public class StudentControllerServlet extends HttpServlet {
 		// read student info from form data
 		String nombre = request.getParameter("firstName");
 		String apellido = request.getParameter("lastName");
-		String casa = request.getParameter("email");	
+		String casa = request.getParameter("casa");	
 		
 		// create a new student object
 		Student theStudent = new Student(nombre, apellido, casa);
