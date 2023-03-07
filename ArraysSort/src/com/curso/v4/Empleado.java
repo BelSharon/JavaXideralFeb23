@@ -1,7 +1,6 @@
-package com.curso.v2;
-//no pide imprtar porque está en 
-//java.lang y lo immpmorta por default
-public class Empleado implements Comparable<Empleado> {
+package com.curso.v4;
+
+public class Empleado{
 	
 	private String nombre;
 	private int edad;
@@ -42,15 +41,4 @@ public class Empleado implements Comparable<Empleado> {
 	public String toString() {
 		return "Empleado [nombre=" + nombre + ", edad=" + edad + ", sueldo=" + sueldo + "]";
 	}
-
-	//ODENAMOS POR NOMBRE
-	public int compareTo(Empleado o) {
-		return this.nombre.compareTo(o.nombre);
-	}//STRING YA TIENE EL MÉTODO compareTo
-	
-	//ORDENAMOS POR SUELDO
-//	@Override
-//	public int compareTo(Empleado o) {
-//		return (int)(this.sueldo - o.sueldo);
-//	}
 }
