@@ -9,10 +9,11 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.luv2code</groupId>
-	<artifactId>springdemo</artifactId>
+	<artifactId>springMvcHibernateSBoot</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>springdemo</name>
-	<description>Project for Spring Boot</description>
+	<description>Se tomo como base el proyecto SpringMvc/Hibernate
+	             y se migro a SpringBoot y se realizó desde el Inizialiter</description>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
@@ -41,6 +42,15 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-jasper</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
 		</dependency>
 	</dependencies>
 
