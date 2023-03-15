@@ -12,7 +12,7 @@
 	<groupId>com.luv2code</groupId>
 	<artifactId>springBootRestJpa</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>springdemo</name>
+	<name>springBootRestJpaException</name>
 	<description>Servicio Rest con JPA y Exceptions</description>
 	<properties>
 		<java.version>1.8</java.version>
