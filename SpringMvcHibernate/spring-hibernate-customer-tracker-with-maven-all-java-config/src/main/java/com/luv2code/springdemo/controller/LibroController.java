@@ -11,79 +11,69 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.luv2code.springdemo.entity.Customer;
-import com.luv2code.springdemo.service.CustomerService;
+import com.luv2code.springdemo.entity.Libro;
+import com.luv2code.springdemo.service.LibroService;
 
 @Controller
-@RequestMapping("/customer")
-public class CustomerController {
+@RequestMapping("/libro")
+public class LibroController {
 
 	// need to inject our customer service
 	@Autowired
-	private CustomerService customerService;
+	private LibroService libroService;
 	
 	@GetMapping("/list")
-	public String listCustomers(Model theModel) {
+	public String listLibros(Model theModel) {
 		
 		// get customers from the service
-		List<Customer> theCustomers = customerService.getCustomers();
+		List<Libro> losLibros = libroService.getLibros();
 				
 		// add the customers to the model
-		theModel.addAttribute("customers", theCustomers);
+		theModel.addAttribute("libros", losLibros);
 		
-		return "list-customers";
+		return "list-libros";
 	}
 	
 	@GetMapping("/showFormForAdd")
 	public String showFormForAdd(Model theModel) {
 		
 		// create model attribute to bind form data
-		Customer theCustomer = new Customer();
+		Libro elLibro = new Libro();
 		
-		theModel.addAttribute("customer", theCustomer);
+		theModel.addAttribute("libro", elLibro);
 		
-		return "customer-form";
+		return "libro-form";
 	}
 	
-	@PostMapping("/saveCustomer")
-	public String saveCustomer(@ModelAttribute("customer") Customer theCustomer) {
+	@PostMapping("/saveLibro")
+	public String saveLibro(@ModelAttribute("libro") Libro elLibro) {
 		
 		// save the customer using our service
-		customerService.saveCustomer(theCustomer);	
+		libroService.saveLibro(elLibro);
 		
-		return "redirect:/customer/list";
+		return "redirect:/libro/list";
 	}
 	
 	@GetMapping("/showFormForUpdate")
-	public String showFormForUpdate(@RequestParam("customerId") int theId,
+	public String showFormForUpdate(@RequestParam("libroId") int theId,
 									Model theModel) {
 		
 		// get the customer from our service
-		Customer theCustomer = customerService.getCustomer(theId);	
+		Libro elLibro = libroService.getLibro(theId);
 		
 		// set customer as a model attribute to pre-populate the form
-		theModel.addAttribute("customer", theCustomer);
+		theModel.addAttribute("libro", elLibro);
 		
 		// send over to our form		
-		return "customer-form";
+		return "libro-form";
 	}
 	
 	@GetMapping("/delete")
-	public String deleteCustomer(@RequestParam("customerId") int theId) {
+	public String deleteLibro(@RequestParam("libroId") int theId) {
 		
 		// delete the customer
-		customerService.deleteCustomer(theId);
+		libroService.deleteLibro(theId);
 		
-		return "redirect:/customer/list";
+		return "redirect:/libro/list";
 	}
 }
-
-
-
-
-
-
-
-
-
-

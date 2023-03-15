@@ -2,16 +2,16 @@ package com.luv2code.springdemo.service;
 
 import java.util.List;
 
-import com.luv2code.springdemo.entity.Customer;
+import com.luv2code.springdemo.entity.Libro;
 
-public interface CustomerService {
+public interface LibroService {
 
-	public List<Customer> getCustomers();
+	public List<Libro> getLibros();
 
-	public void saveCustomer(Customer theCustomer);
+	public void saveLibro(Libro elLibro);
 
-	public Customer getCustomer(int theId);
+	public Libro getLibro(int theId);
 
-	public void deleteCustomer(int theId);
+	public void deleteLibro(int theId);
 	
 }

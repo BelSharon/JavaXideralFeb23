@@ -5,7 +5,7 @@
 <html>
 
 <head>
-	<title>List Customers</title>
+	<title>Lista de libros</title>
 	
 	<!-- reference our style sheet -->
 
@@ -19,7 +19,7 @@
 
 	<div id="wrapper">
 		<div id="header">
-			<h2>CRM - Customer Relationship Manager</h2>
+			<h2>Mi pequeña biblioteca</h2>
 		</div>
 	</div>
 	
@@ -29,7 +29,7 @@
 		
 			<!-- put new button: Add Customer -->
 		
-			<input type="button" value="Add Customer"
+			<input type="button" value="Agregar Libro"
 				   onclick="window.location.href='showFormForAdd'; return false;"
 				   class="add-button"
 			/>
@@ -38,36 +38,38 @@
 		
 			<table>
 				<tr>
-					<th>First Name</th>
-					<th>Last Name</th>
-					<th>Email</th>
-					<th>Action</th>
+					<th>Título</th>
+					<th>Autor</th>
+					<th>Editorial</th>
+					<th>Disponibilidad</th>
+					<th>Acción</th>
 				</tr>
 				
 				<!-- loop over and print our customers -->
-				<c:forEach var="tempCustomer" items="${customers}">
+				<c:forEach var="tmpLibro" items="${libros}">
 				
 					<!-- construct an "update" link with customer id -->
-					<c:url var="updateLink" value="/customer/showFormForUpdate">
-						<c:param name="customerId" value="${tempCustomer.id}" />
+					<c:url var="updateLink" value="/libro/showFormForUpdate">
+						<c:param name="libroId" value="${tmpLibro.id}" />
 					</c:url>					
 
 					<!-- construct an "delete" link with customer id -->
-					<c:url var="deleteLink" value="/customer/delete">
-						<c:param name="customerId" value="${tempCustomer.id}" />
+					<c:url var="deleteLink" value="/libro/delete">
+						<c:param name="libroId" value="${tmpLibro.id}" />
 					</c:url>					
 					
 					<tr>
-						<td> ${tempCustomer.firstName} </td>
-						<td> ${tempCustomer.lastName} </td>
-						<td> ${tempCustomer.email} </td>
+						<td> ${tmpLibro.titulo} </td>
+						<td> ${tmpLibro.autor} </td>
+						<td> ${tmpLibro.editorial} </td>
+						<td> ${tmpLibro.disponible} </td>
 						
 						<td>
 							<!-- display the update link -->
-							<a href="${updateLink}">Update</a>
+							<a href="${updateLink}">Actualizar</a>
 							|
 							<a href="${deleteLink}"
-							   onclick="if (!(confirm('Are you sure you want to delete this customer?'))) return false">Delete</a>
+							   onclick="if (!(confirm('¿Seguro de eliminar el Libro?'))) return false">Eliminar</a>
 						</td>
 						
 					</tr>

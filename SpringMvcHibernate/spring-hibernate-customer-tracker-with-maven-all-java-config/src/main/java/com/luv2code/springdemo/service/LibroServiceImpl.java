@@ -6,41 +6,41 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.luv2code.springdemo.dao.CustomerDAO;
-import com.luv2code.springdemo.entity.Customer;
+import com.luv2code.springdemo.dao.LibroDAO;
+import com.luv2code.springdemo.entity.Libro;
 
 @Service
-public class CustomerServiceImpl implements CustomerService {
+public class LibroServiceImpl implements LibroService {
 
 	// need to inject customer dao
 	@Autowired
-	private CustomerDAO customerDAO;
+	private LibroDAO libroDAO;
 	
 	@Override
 	@Transactional
-	public List<Customer> getCustomers() {
-		return customerDAO.getCustomers();
+	public List<Libro> getLibros() {
+		return libroDAO.getLibros();
 	}
 
 	@Override
 	@Transactional
-	public void saveCustomer(Customer theCustomer) {
+	public void saveLibro(Libro elLibro) {
 
-		customerDAO.saveCustomer(theCustomer);
+		libroDAO.saveLibro(elLibro);
 	}
 
 	@Override
 	@Transactional
-	public Customer getCustomer(int theId) {
+	public Libro getLibro(int theId) {
 		
-		return customerDAO.getCustomer(theId);
+		return libroDAO.getLibro(theId);
 	}
 
 	@Override
 	@Transactional
-	public void deleteCustomer(int theId) {
+	public void deleteLibro(int theId) {
 		
-		customerDAO.deleteCustomer(theId);
+		libroDAO.deleteLibro(theId);
 	}
 }
 

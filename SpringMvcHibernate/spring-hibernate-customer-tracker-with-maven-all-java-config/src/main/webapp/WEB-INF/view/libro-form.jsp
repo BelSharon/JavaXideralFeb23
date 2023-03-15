@@ -4,7 +4,7 @@
 <html>
 
 <head>
-	<title>Save Customer</title>
+	<title>Guardar libro nuevo</title>
 
 	<link type="text/css"
 		  rel="stylesheet"
@@ -19,14 +19,14 @@
 	
 	<div id="wrapper">
 		<div id="header">
-			<h2>CRM - Customer Relationship Manager</h2>
+			<h2>Mi pequeña biblioteca</h2>
 		</div>
 	</div>
 
 	<div id="container">
-		<h3>Save Customer</h3>
+		<h3>Guardar libro</h3>
 	
-		<form:form action="saveCustomer" modelAttribute="customer" method="POST">
+		<form:form action="saveLibro" modelAttribute="libro" method="POST">
 
 			<!-- need to associate this data with customer id -->
 			<form:hidden path="id" />
@@ -34,23 +34,28 @@
 			<table>
 				<tbody>
 					<tr>
-						<td><label>First name:</label></td>
-						<td><form:input path="firstName" /></td>
+						<td><label>Título:</label></td>
+						<td><form:input path="titulo" /></td>
 					</tr>
 				
 					<tr>
-						<td><label>Last name:</label></td>
-						<td><form:input path="lastName" /></td>
+						<td><label>Autor:</label></td>
+						<td><form:input path="autor" /></td>
 					</tr>
 
 					<tr>
-						<td><label>Email:</label></td>
-						<td><form:input path="email" /></td>
+						<td><label>Editorial:</label></td>
+						<td><form:input path="editorial" /></td>
+					</tr>
+					
+					<tr>
+						<td><label>Disponible:</label></td>
+						<td><form:input path="disponible" /></td>
 					</tr>
 
 					<tr>
 						<td><label></label></td>
-						<td><input type="submit" value="Save" class="save" /></td>
+						<td><input type="submit" value="Guardar" class="save" /></td>
 					</tr>
 
 				
@@ -63,7 +68,7 @@
 		<div style="clear; both;"></div>
 		
 		<p>
-			<a href="${pageContext.request.contextPath}/customer/list">Back to List</a>
+			<a href="${pageContext.request.contextPath}/libro/list">Regresar a la lista</a>
 		</p>
 	
 	</div>
