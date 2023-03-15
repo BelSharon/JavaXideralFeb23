@@ -13,10 +13,10 @@ import com.luv2code.springdemo.entity.Customer;
 @Repository
 public class CustomerDAOJpa implements CustomerDAO {
 	
-    //INTERFAZ PARA INTERACCION CON PERSIST
+    // define field for entitymanager
     private EntityManager entityManager;
     
-    // INYECTAMOS POR CONSTRUCTOR
+    // set up constructor injection
     @Autowired
     public CustomerDAOJpa(EntityManager theEntityManager) {
         entityManager = theEntityManager;
@@ -31,7 +31,6 @@ public class CustomerDAOJpa implements CustomerDAO {
         // execute query and get result list
         List<Customer> customers = theQuery.getResultList();
 
-        System.out.println("Pasó por JPA");
         // return the results
         return customers;
 	}

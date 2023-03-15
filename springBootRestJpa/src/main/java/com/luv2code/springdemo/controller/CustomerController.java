@@ -23,7 +23,7 @@ import com.luv2code.springdemo.service.CustomerService;
 @RequestMapping("/rest")
 public class CustomerController {
 
-	// PARA INYECCION DE CustomerService
+	// need to inject our customer service
 	@Autowired
 	private CustomerService customerService;
 	
@@ -65,14 +65,15 @@ public class CustomerController {
 	@DeleteMapping("/customers/{customerId}")
 	public String deleteCustomer(@PathVariable int customerId) {
 		
-		Customer tempCustomer = customerService.getCustomer(customerId);
+		Customer tempEmployee = customerService.getCustomer(customerId);
 		
-		// EXCEPCION SI NO LO ENCUENTRA
-		if (tempCustomer == null) {
+		// throw exception if null
+		
+		if (tempEmployee == null) {
 			throw new RuntimeException("Customer id not found - " + customerId);
 		}
 		
-		customerService.deleteCustomer(customerId); //SE PUEDEN CON JPA Y JDBC
+		customerService.deleteCustomer(customerId);
 		
 		return "Deleted customer id - " + customerId;
 	}
